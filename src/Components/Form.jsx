@@ -1,24 +1,48 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import userReset from "../Layout/usersReset";
 
-const Form = ({ newUser }) => {
+const Form = ({ newUser, updateInfo,apiGet, setupdateInfo }) => {
   const { register, handleSubmit, reset } = useForm();
-  const onSubmit = data => {
-    newUser(data);
+  const Submit = (data) => {
+    if (updateInfo) {
+      updateCardById(data);
+    } else {
+      newUser(data);
+    }
     reset(userReset);
   };
+  useEffect(() => {
+    if (updateInfo) {
+      reset(updateInfo);
+    }
+  }, [updateInfo]);
+
+  const updateCardById = (data) => {
+    const url = `https://users-crud.academlo.tech/users/${updateInfo.id}/`;
+    axios
+      .patch(url, data)
+      .then((res) => {
+        console.log(res.data);
+        apiGet();
+        setupdateInfo();
+      })
+      .catch((err) => console.log(err));
+  };
+  console.log(updateInfo);
+
   return (
     <>
       <div className="card">
         <div className="card-header">
-          <h3 className="text-header">Create</h3>
+          <h3 className="text-header">{updateInfo ? 'Update User' : 'Create User'}</h3>
         </div>
         <div className="card-body">
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={handleSubmit(Submit)}>
             <div className="form-group">
               <label>
-                Name:
+                Firts Name:
                 <input
                   {...register("first_name")}
                   className="form-control"
@@ -66,7 +90,7 @@ const Form = ({ newUser }) => {
                 />
               </label>
             </div>
-            <button className="btn"> Create</button>
+            <button className="btn"> {updateInfo ? 'Update User' : 'Create User'}</button>
           </form>
         </div>
       </div>

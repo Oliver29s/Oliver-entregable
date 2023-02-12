@@ -6,8 +6,9 @@ import Form from "./Components/Form";
 
 function App() {
   const [usersGet, setusersGet] = useState();
+  const [updateInfo, setupdateInfo] = useState();
   const apiGet = () => {
-    const url = "http://users-crud.academlo.tech/users/";
+    const url = "https://users-crud.academlo.tech/users/";
     axios
       .get(url)
       .then((res) => setusersGet(res.data))
@@ -19,7 +20,7 @@ function App() {
   }, []);
 
   const newUser = (data) => {
-    const url = "http://users-crud.academlo.tech/users/";
+    const url = "https://users-crud.academlo.tech/users/";
     axios
       .post(url, data)
       .then((res) => {
@@ -31,15 +32,23 @@ function App() {
 
   return (
     <div className="App">
-      <Form newUser={newUser} />
-      {
-        usersGet?.map(user =>{
-          <article>
-            <h2>Users</h2>
-            <CardsUsers key={user.id} user={user} />
-          </article>
-        })
-      }
+      <Form
+        newUser={newUser}
+        updateInfo={updateInfo}
+        setupdateInfo={setupdateInfo}
+        apiGet={apiGet}
+      />
+      <article>
+        <h2>Users</h2>
+        {usersGet?.map((user) => (
+          <CardsUsers
+            key={user.id}
+            user={user}
+            apiGet={apiGet}
+            setupdateInfo={setupdateInfo}
+          />
+        ))}
+      </article>
     </div>
   );
 }

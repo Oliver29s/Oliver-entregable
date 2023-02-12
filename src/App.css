@@ -69,3 +69,7 @@
     background-color: #ccc;
     color: #333;
   }
+
+  .bx{
+    cursor: pointer;
+  }
