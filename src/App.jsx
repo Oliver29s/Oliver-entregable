@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import CardsUsers from "./Components/CardsUsers";
 import Form from "./Components/Form";
-import HandleError from "./Components/handleError";
+
 
 function App() {
   const [usersGet, setusersGet] = useState();
@@ -36,7 +36,7 @@ function App() {
       });
   };
 const formOpen = () => setopenForm(true)
-console.log(formOpen);
+
   return (
     <div className="App">
       <header className="header__users">
@@ -53,11 +53,11 @@ console.log(formOpen);
         openForm={openForm}
         setopenForm={setopenForm}
       />
-      {
-        handleError ? <HandleError setopenForm={setopenForm}/>
-        :
-      <article>
+      
+      <article className="article__users">
         <h2>Users</h2>
+        <div className="div__users">
+
         {usersGet?.map((user) => (
           <CardsUsers
             key={user.id}
@@ -68,8 +68,9 @@ console.log(formOpen);
            
           />
         ))}
+        </div>
       </article>
-      }
+      
     </div>
   );
 }

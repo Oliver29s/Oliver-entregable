@@ -29,17 +29,21 @@
   position: fixed;
   scale: 0;
   transition: 0.5s;
+  background-color: rgba(199, 197, 197, 0.552);
+  backdrop-filter: blur(2px) ;
 }
 .contain__card_scale{
 scale:1;
 }
+
 .card {
     max-width: 350px;
-    border: 1px solid #ccc;
     border-radius: 4px;
     box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
     overflow: hidden;
     margin: 10px;
+    background-color: rgba(245, 8, 8, 0.2);
+
   }
   
   .card-header {
@@ -101,33 +105,41 @@ scale:1;
 
   .bx{
     cursor: pointer;
-  }
-  .axios__error{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    max-width: 500px;
-    background-color: aquamarine;
-    padding: 1rem;
-    margin: 100px auto auto auto;
-    position: relative;
-    gap: 1rem;
-    border-radius: 1rem;
-    text-align: center;
-  }
-  .axios__error img{
-    width: 100%;
-    grid-column: 1 / 3;
-    border-radius: 1rem;
-  }
-  .axios__error div{
-    position: absolute;
-    top: 3px;
-    right: 20px;
-    font-size: 30px;
-    cursor: pointer;
-  }
-
-  .axios__error div:hover{
-    color: #8EA7E9;
+    width: 50px;
+    height: 35px;
+    
   }
   
+  .article__users h2 {
+    text-align: center;
+  }
+
+  .div__users{
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+    max-width: 1024px;
+  }
+  .card__user{
+    max-height: 250px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: aquamarine;
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+
+  .card__info{
+    display: grid;
+    gap: 1rem;
+  }
+
+  .petro{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+  }

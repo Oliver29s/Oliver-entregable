@@ -20,9 +20,9 @@ const CardsUsers = ({ user, apiGet,setupdateInfo,setopenForm }) => {
  
  
   return (
-    <div>
-      <div>
-        <p>{`${user["first_name"]} ${user["last_name"]}`} </p>
+    <div className="card__user">
+      <div className="card__info">
+        <h5 className="petro">{`${user["first_name"]} ${user["last_name"]}`} </h5>
         <p>{user.email}</p>
         <p>{user.birthday}</p>
       </div>

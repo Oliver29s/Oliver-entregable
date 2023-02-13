@@ -30,7 +30,6 @@ const Form = ({ newUser, updateInfo,apiGet, setupdateInfo,openForm,setopenForm }
       })
       .catch((err) => console.log(err));
   };
-  console.log(updateInfo);
 
   return (
     <div className={`contain__card ${openForm && 'contain__card_scale' }`}>
@@ -45,6 +44,7 @@ const Form = ({ newUser, updateInfo,apiGet, setupdateInfo,openForm,setopenForm }
               <label>
                 Firts Name:
                 <input
+                required
                   {...register("first_name")}
                   className="form-control"
                   type="text"
@@ -55,6 +55,7 @@ const Form = ({ newUser, updateInfo,apiGet, setupdateInfo,openForm,setopenForm }
               <label>
                 Last name:
                 <input
+                required
                   {...register("last_name")}
                   className="form-control"
                   type="text"
@@ -65,6 +66,7 @@ const Form = ({ newUser, updateInfo,apiGet, setupdateInfo,openForm,setopenForm }
               <label>
                 Email:
                 <input
+                required
                   {...register("email")}
                   className="form-control"
                   type="email"
@@ -75,6 +77,7 @@ const Form = ({ newUser, updateInfo,apiGet, setupdateInfo,openForm,setopenForm }
               <label>
                 Password:
                 <input
+                required
                   {...register("password")}
                   className="form-control"
                   type="password"
@@ -85,13 +88,15 @@ const Form = ({ newUser, updateInfo,apiGet, setupdateInfo,openForm,setopenForm }
               <label>
                 Birthdate:
                 <input
+                required
                   {...register("birthday")}
                   className="form-control"
                   type="date"
                 />
               </label>
             </div>
-            <button className="btn" onClick={()=>setopenForm(false)}>  {updateInfo ? 'Update User' : 'Create User'}</button>
+            <button className="btn" >  {updateInfo ? 'Update User' : 'Create User'}</button>
+            <button className="btn" onClick={()=>setopenForm(false)}>Cancel</button>
           </form>
         </div>
       </div>
