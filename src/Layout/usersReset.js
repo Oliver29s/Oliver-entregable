@@ -3,7 +3,7 @@
     last_name:'',
     email:'',
     password:'',
-    birthdate:'',
+    birthday:'',
  }
 
  export default userReset
