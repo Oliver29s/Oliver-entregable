@@ -95,7 +95,7 @@ const Form = ({ newUser, updateInfo,apiGet, setupdateInfo,openForm,setopenForm }
                 />
               </label>
             </div>
-            <button className="btn" >  {updateInfo ? 'Update User' : 'Create User'}</button>
+            <button className="btn"  onClick={()=>setopenForm(false)} >  {updateInfo ? 'Update User' : 'Create User'}</button>
             <button className="btn" onClick={()=>setopenForm(false)}>Cancel</button>
           </form>
         </div>

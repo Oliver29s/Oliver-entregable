@@ -8,6 +8,7 @@
   background-color: #8EA7E9;
   padding: 1rem;
   box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+ 
 }
 
 .header__info{
@@ -20,6 +21,24 @@
  
 
 }
+
+.button {
+  color: #090909;
+  padding: 0.7em 1.7em;
+  font-size: 18px;
+  border-radius: 0.5em;
+  background: #e8e8e8;
+  border: 1px solid #e8e8e8;
+  transition: all .3s;
+  box-shadow: 6px 6px 12px #c5c5c5,
+              -1px -1px 12px #ffffff;
+ }
+ 
+ button:active {
+  color: #666;
+  box-shadow: inset 4px 4px 12px #c5c5c5,
+              inset -4px -4px 12px #ffffff;
+ }
 .contain__card{
   width: 100%;
   height: 100vh;
@@ -112,6 +131,7 @@ scale:1;
   
   .article__users h2 {
     text-align: center;
+    margin-top: 35px;
   }
 
   .div__users{
@@ -123,6 +143,8 @@ scale:1;
     gap: 1rem;
     flex-wrap: wrap;
     max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .card__user{
     max-height: 250px;
@@ -130,7 +152,7 @@ scale:1;
     align-items: center;
     gap: 1rem;
     background-color: aquamarine;
-    padding: 1rem;
+    padding: 0.4rem;
     border-radius: 1rem;
   }
 
