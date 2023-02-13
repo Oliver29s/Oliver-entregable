@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import userReset from "../Layout/usersReset";
 
-const Form = ({ newUser, updateInfo,apiGet, setupdateInfo }) => {
+const Form = ({ newUser, updateInfo,apiGet, setupdateInfo,openForm,setopenForm }) => {
   const { register, handleSubmit, reset } = useForm();
   const Submit = (data) => {
     if (updateInfo) {
@@ -33,7 +33,8 @@ const Form = ({ newUser, updateInfo,apiGet, setupdateInfo }) => {
   console.log(updateInfo);
 
   return (
-    <>
+    <div className={`contain__card ${openForm && 'contain__card_scale' }`}>
+      
       <div className="card">
         <div className="card-header">
           <h3 className="text-header">{updateInfo ? 'Update User' : 'Create User'}</h3>
@@ -90,11 +91,12 @@ const Form = ({ newUser, updateInfo,apiGet, setupdateInfo }) => {
                 />
               </label>
             </div>
-            <button className="btn"> {updateInfo ? 'Update User' : 'Create User'}</button>
+            <button className="btn" onClick={()=>setopenForm(false)}>  {updateInfo ? 'Update User' : 'Create User'}</button>
           </form>
         </div>
       </div>
-    </>
+    </div>
+    
   );
 };
 

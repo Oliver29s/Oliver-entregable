@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
 
-const CardsUsers = ({ user, apiGet,setupdateInfo }) => {
+const CardsUsers = ({ user, apiGet,setupdateInfo,setopenForm }) => {
   const hanbdleDelete = () => {
     const url = `https://users-crud.academlo.tech/users/${user.id}/`;
     axios
@@ -12,7 +12,10 @@ const CardsUsers = ({ user, apiGet,setupdateInfo }) => {
       .catch((err) => console.log(err));
   };
 
- const handleUpdate = () => setupdateInfo(user)
+ const handleUpdate = () => {
+  setopenForm(true)
+   setupdateInfo(user)
+ } 
 
  
  
